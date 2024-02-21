@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-user-film
+      author: Yulia
+      changes:
+        - createTable:
+            tableName: user_film
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: user_id_fk
+                    referencedTableName: users
+                    referencedColumnNames: id
+              - column:
+                  name: film_id
+                  type: bigint
+                  constraints:
+                    nullable: true
